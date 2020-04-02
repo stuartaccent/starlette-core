@@ -2,8 +2,8 @@ import collections.abc
 import inspect
 from math import ceil
 
-from .exceptions import EmptyPage, InvalidPage, PageNotAnInteger
-from .utils import method_has_no_args
+from starlette_core.exceptions import EmptyPage, InvalidPage, PageNotAnInteger
+from starlette_core.utils import method_has_no_args
 
 
 class Paginator:

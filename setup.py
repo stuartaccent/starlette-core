@@ -55,7 +55,7 @@ setup(
     name=name,
     python_requires=">=3.7",
     version=get_version(package_name),
-    url="https://github.com/accent-starlette/starlette-core",
+    url="https://github.com/stuartaccent/starlette-core",
     license="MIT",
     description="Starlette Core.",
     long_description=get_long_description(),
@@ -65,11 +65,12 @@ setup(
     packages=get_packages(package_name),
     package_data=get_package_data(package_name),
     install_requires=[
+        'aiosmtplib',
+        'databases',
         'sqlalchemy',
-        'sqlalchemy-utils',
         'starlette',
         'typing',
-        'wtforms'
+        'wtforms',
     ],
     extras_require={
         "docs": [

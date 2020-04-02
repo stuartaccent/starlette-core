@@ -4,8 +4,8 @@ from starlette import templating
 from starlette.datastructures import QueryParams
 from wtforms import fields, form
 
-from .config import config
-from .messages import get_messages
+from starlette_core.config import config
+from starlette_core.messages import get_messages
 
 try:
     import jinja2

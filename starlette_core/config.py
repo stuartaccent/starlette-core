@@ -1,11 +1,15 @@
 import typing
 
+from databases import DatabaseURL
 from starlette.config import Config
 from starlette.datastructures import CommaSeparatedStrings, Secret
 
 
 class AppConfig:
-    _config = Config(".env")
+    _config = Config()
+
+    # database configuration
+    database_url: DatabaseURL = _config("DATABASE_URL", cast=DatabaseURL)
 
     # email configuration
     email_backend: str = _config(
@@ -23,6 +27,7 @@ class AppConfig:
     email_timeout: typing.Optional[int] = _config(
         "EMAIL_TIMEOUT", cast=int, default=None
     )
+
     # templating configuration
     jinja2_extensions: typing.List[str] = _config(
         "JINJA2_EXTENSIONS", cast=CommaSeparatedStrings, default=[]

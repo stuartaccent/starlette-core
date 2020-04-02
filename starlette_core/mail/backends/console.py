@@ -3,7 +3,7 @@ import threading
 import typing
 from email.message import EmailMessage
 
-from .base import BaseEmailBackend
+from starlette_core.mail.backends.base import BaseEmailBackend
 
 
 class EmailBackend(BaseEmailBackend):
@@ -26,7 +26,7 @@ class EmailBackend(BaseEmailBackend):
         self.stream.write("-" * 79)
         self.stream.write("\n")
 
-    def send_messages(self, email_messages: typing.List[EmailMessage]) -> int:
+    async def send_messages(self, email_messages: typing.List[EmailMessage]) -> int:
         """ Write all messages to the stream in a thread-safe way. """
 
         if not email_messages:
